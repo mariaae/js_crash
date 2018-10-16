@@ -1,18 +1,19 @@
-var Store = class {
+var Retailer = class {
   constructor(name) {
     this.name = name;
-    this.locations = [];
+    this.stores = [];
   }
 
-  addStoreLocation(location) {
-    this.locations.push(location)
+  addStore(store) {
+    this.stores.push(store)
   }
 }
 
-var Location = class {
-  constructor(store, address) {
+var Store = class {
+  constructor(retailer, address) {
+    this.retailer = this.retailer;
+    this.retailer.addStore(this);
     this.address = address;
-    this.store = store;
     this.saleEvents = []
   }
 
@@ -47,15 +48,11 @@ var Customer = class {
 }
 
 // Create a Store
-var hundm = new Store("H & M")
+var hundm = new Retailer("H & M")
 
 // Create locations
-var hundm_alexa = new Location(hundm, "Alexa Berlin")
-var hundm_ring_center = new Location(hundm, "Ring-Center Berlin")
-
-// Add locations to store
-hundm.addStoreLocation(hundm_alexa);
-hundm.addStoreLocation(hundm_ring_center);
+var hundm_alexa = new Store(hundm, "Alexa Berlin")
+var hundm_ring_center = new Store(hundm, "Ring-Center Berlin")
 
 // Create a sale event
 var sale_30 = new SaleEvent(hundm_alexa, "Clothing", "30%")
