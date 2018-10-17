@@ -11,27 +11,28 @@ var Retailer = class {
 
 var Store = class {
   constructor(retailer, address) {
-    this.retailer = this.retailer;
+    this.retailer = retailer;
     this.retailer.addStore(this);
     this.address = address;
     this.saleEvents = []
   }
 
   addSaleEvent(saleEvent){
-      this.saleEvents.push(saleEvent)
+    this.saleEvents.push(saleEvent)
   }
 
 }
 
 var SaleEvent = class {
-  constructor(location, category, percentage) {
-    this.location = location;
+  constructor(store, category, percentage) {
+    this.store = store;
+    this.store.addSaleEvent(this);
     this.category = category;
     this.percentage = percentage;
     this.customers = []
   }
 
-  addCustomerToEvent(customer) {
+  addCustomer(customer) {
     this.customers.push(customer)
   }
 }
@@ -39,11 +40,10 @@ var SaleEvent = class {
 var Customer = class {
   constructor(firstname){
     this.firstname = firstname;
-    this.saleEvents = []
   }
 
-  attendsSaleEvent(saleEvent) {
-    this.saleEvents.push(saleEvent)
+  attendSaleEvent(saleEvent) {
+    saleEvent.addCustomer(this);
   }
 }
 
@@ -57,17 +57,11 @@ var hundm_ring_center = new Store(hundm, "Ring-Center Berlin")
 // Create a sale event
 var sale_30 = new SaleEvent(hundm_alexa, "Clothing", "30%")
 
-// Add sale event to store
-hundm_alexa.addSaleEvent(sale_30)
-
 // Create a customer
 var karl = new Customer("Karl")
 
-// Make the customer attend the sale event
-sale_30.addCustomerToEvent(karl)
-
-// Add the sale event to customer
-karl.attendsSaleEvent(sale_30)
+// // Make the customer attend the sale event
+karl.attendSaleEvent(sale_30)
 
 
 
