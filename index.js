@@ -1,51 +1,10 @@
-var Retailer = class {
-  constructor(name) {
-    this.name = name;
-    this.stores = [];
-  }
+const Retailer = require('./retailer')
+const Store = require('./store')
+const SaleEvent = require('./sale')
+const Customer = require('./customer')
 
-  addStore(store) {
-    this.stores.push(store)
-  }
-}
 
-var Store = class {
-  constructor(retailer, address) {
-    this.retailer = retailer;
-    this.retailer.addStore(this);
-    this.address = address;
-    this.saleEvents = []
-  }
 
-  addSaleEvent(saleEvent){
-    this.saleEvents.push(saleEvent)
-  }
-
-}
-
-var SaleEvent = class {
-  constructor(store, category, percentage) {
-    this.store = store;
-    this.store.addSaleEvent(this);
-    this.category = category;
-    this.percentage = percentage;
-    this.customers = []
-  }
-
-  addCustomer(customer) {
-    this.customers.push(customer)
-  }
-}
-
-var Customer = class {
-  constructor(firstname){
-    this.firstname = firstname;
-  }
-
-  attendSaleEvent(saleEvent) {
-    saleEvent.addCustomer(this);
-  }
-}
 
 // Create a Store
 var hundm = new Retailer("H & M")
@@ -63,6 +22,7 @@ var karl = new Customer("Karl")
 // // Make the customer attend the sale event
 karl.attendSaleEvent(sale_30)
 
+console.log(hundm.stores[0].saleEvents)
 
 
 
