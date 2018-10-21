@@ -1,0 +1,22 @@
+{
+  "name": "spot_a_sale",
+  "version": "1.0.0",
+  "description": "Spot a Sale in Berlin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariaae/js_crash.git"
+  },
+  "keywords": [
+    "sale"
+  ],
+  "author": "Maria Alavez <mariaalavez@hotmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mariaae/js_crash/issues"
+  },
+  "homepage": "https://github.com/mariaae/js_crash#readme"
+}
