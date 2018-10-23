@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mariaae/js_crash/issues"
   },
-  "homepage": "https://github.com/mariaae/js_crash#readme"
+  "homepage": "https://github.com/mariaae/js_crash#readme",
+  "dependencies": {
+    "circular-json": "^0.5.8"
+  }
 }
