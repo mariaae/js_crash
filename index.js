@@ -23,8 +23,6 @@ karl.attendSaleEvent(sale_30)
 // Save to DB
 Database.save(hundm)
 const loadedFile = Database.load()
-console.log(loadedFile.stores)
+console.log(loadedFile.stores.map())
 // console.log(hundm)
-
-
 

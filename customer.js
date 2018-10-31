@@ -6,4 +6,8 @@ module.exports = class Customer {
   attendSaleEvent(saleEvent) {
     saleEvent.addCustomer(this);
   }
+
+  static create({firstname}) {
+    return new Customer(firtname)
+  }
 }

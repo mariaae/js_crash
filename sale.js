@@ -10,4 +10,8 @@ module.exports = class SaleEvent {
   addCustomer(customer) {
     this.customers.push(customer)
   }
+
+  static create({store, category, percentage}) {
+    const sale = new SaleEvent(store, category, percentage)
+  }
 }

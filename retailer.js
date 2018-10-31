@@ -7,4 +7,8 @@ module.exports = class Retailer {
   addStore(store) {
     this.stores.push(store)
   }
+
+  static create({name}) {
+    return new Retailer(name)
+  }
 }
