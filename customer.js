@@ -7,7 +7,7 @@ module.exports = class Customer {
     saleEvent.addCustomer(this);
   }
 
-  static create({firstname}) {
-    return new Customer(firtname)
+  static create(firstname) {
+    return new Customer(firstname)
   }
 }

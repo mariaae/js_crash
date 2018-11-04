@@ -13,5 +13,8 @@ module.exports = class SaleEvent {
 
   static create({store, category, percentage}) {
     const sale = new SaleEvent(store, category, percentage)
+    sale.customers = customers.map(customer => Customer.create)
+
+    return sale
   }
 }

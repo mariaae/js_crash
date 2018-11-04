@@ -15,10 +15,10 @@ module.exports = class Store {
 
   static create({retailerName, address, saleEvents}) {
     const retailer = new Retailer(retailerName)
-    const store = new Store(retailerName, address)
-    store.saleEvents = saleEvents.map( event => SaleEvent.create(store, event.category, event.percentage))
+    const store = new Store(retailer, address)
+    store.saleEvents = saleEvents.map( event => Sale.create)
+
     return store
-    // store.saleEvents = saleEvents.map
   }
 
 }

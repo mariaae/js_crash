@@ -8,7 +8,11 @@ module.exports = class Retailer {
     this.stores.push(store)
   }
 
-  static create({name}) {
-    return new Retailer(name)
+  mapStores() {
+    this.stores.map(store => console.log(store.retailer.name))
+  }
+
+  static create(name) {
+    return new Retailer(name);
   }
 }
