@@ -2,18 +2,22 @@ const Retailer = require('./models/retailer')
 const Store = require('./models/store')
 const SaleEvent = require('./models/sale')
 const Customer = require('./models/customer')
+
 const Database = require('./database')
 const express = require('express')
 const app = express()
+const RetailerService = require('./services/retailer-service')
 
 app.listen(3000, () => console.log("Hello there!"))
 
-app.get('/', (req, resp) => {
-  resp.send("Good morning!!!")
+// Serve index template
+app.get('/', async(req, resp) => {
+  resp.sendFile(__dirname + '/index.html')
 })
 
-app.get('/stores', (req, resp) => {
-  resp.send("Hola!!")
+app.get('/retailers', (req, resp) => {
+  const data = Database.load("data.json")
+  resp.send(RetailerService.findAll())
 })
 
 
@@ -38,10 +42,9 @@ app.get('/stores', (req, resp) => {
 
 // Save & Load DB Asynchronously
 
-const main = async () => {
-  const data = await Database.load("data.json")
-
-}
+// async function main() {
+//   const retailer = await RetailerService.findAll()
+// }
 
 // console.log(cos)
 

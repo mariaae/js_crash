@@ -1,16 +1,16 @@
 const fs = require("fs")
-const StoreModel = require("../models/store")
 const CircularJSON = require('circular-json')
 const dbPath = `${__dirname}/../data.json`
+const RetailerModel = require("../models/retailer")
 
 async function findAll() {
     return new Promise((resolve, reject) => {
         fs.readFile(dbPath, 'utf8', (err, file) => {
             if (err) return reject(err)
 
-            const stores = JSON.parse(file).map(StoreModel.create)
+            const retailers = JSON.parse(file).map(RetailerModel.create)
 
-            resolve(stores)
+            resolve(retailers)
         })
     })
 }
